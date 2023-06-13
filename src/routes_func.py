@@ -98,6 +98,10 @@ def calculateRoutes():
 
     results_there = response_there.json()
     results_back = response_back.json()
+    
+    print(results_there)
+    print(results_back)
+    
     for result in results_there:
         result['originName'] = locations_a[result['originIndex']]['placename']
         result['destinationName'] = locations_b[result['destinationIndex']]['placename']
