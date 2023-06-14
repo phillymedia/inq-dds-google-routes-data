@@ -104,8 +104,8 @@ def calculateRoutes():
         result['destinationName'] = locations_b[result['destinationIndex']]['placename']
         result['duration'] = int(result['duration'][:-1])/60
     for result in results_back:
-        result['originName'] = locations_a[result['destinationIndex']]['placename']
-        result['destinationName'] = locations_b[result['originIndex']]['placename']
+        result['originName'] = locations_b[result['destinationIndex']]['placename']
+        result['destinationName'] = locations_a[result['originIndex']]['placename']
         result['duration'] = int(result['duration'][:-1])/60 
 
     df_there = pd.DataFrame(results_there)
