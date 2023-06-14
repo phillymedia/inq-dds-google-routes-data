@@ -20,12 +20,14 @@ import os
 
 while True:
 
-    df = calculateRoutes()
+    if datetime.now().hour >= 5 and datetime.now().hour <= 20:
+    
+        df = calculateRoutes()
 
-    timestamp = getSnapshotTime()
+        saveDataToS3(json.dumps(df.to_dict(orient='records')),f'routes_{timestamp}.json')
 
-    saveDataToS3(json.dumps(df.to_dict(orient='records')),f'routes_{timestamp}.json')
+        timestamp = getSnapshotTime()
 
-    print("complete for", timestamp)
+        print("complete for", timestamp)
     
     time.sleep(600)
